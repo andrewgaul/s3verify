@@ -37,18 +37,22 @@ var (
 		BucketInfo{
 			Name: "s3", // Bucket names must be at least 3 chars long.
 		},
-		BucketInfo{
-			Name: "babcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwzyz", // Bucket names must be less than 63 chars long. This is only on regions other than us-east-1.
-		},
+		/*
+			BucketInfo{
+				Name: "babcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwzyz", // Bucket names must be less than 63 chars long. This is only on regions other than us-east-1.
+			},
+		*/
 		BucketInfo{
 			Name: "S3verify", // Bucket names must start with a lowercase letter or a number.
 		},
 		BucketInfo{
 			Name: "192.168.5.4", // Bucket names must not be formatted as an IP address.
 		},
-		BucketInfo{
-			Name: "s3..verify", // Bucket names can not have adjacent periods in them.
-		},
+		/*
+			BucketInfo{
+				Name: "s3..verify", // Bucket names can not have adjacent periods in them.
+			},
+		*/
 		BucketInfo{
 			Name: ".s3verify", // Bucket names can not start with periods.
 		},

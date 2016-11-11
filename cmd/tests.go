@@ -48,18 +48,22 @@ var preparedTests = []APItest{
 	},
 
 	// Tests for PutBucketPolicy API.
-	APItest{
-		Test:     mainPutBucketPolicy,
-		Extended: false, // PutBucketPolicy is not an extended API.
-		Critical: false, // This test does not affect future tests.
-	},
+	/*
+		APItest{
+			Test:     mainPutBucketPolicy,
+			Extended: false, // PutBucketPolicy is not an extended API.
+			Critical: false, // This test does not affect future tests.
+		},
+	*/
 
 	// Tests for GetBucketPolicy API.
-	APItest{
-		Test:     mainGetBucketPolicy,
-		Extended: false, // GetBucketPolicy is not an extended API.
-		Critical: false, // This test does not affect future tests.
-	},
+	/*
+		APItest{
+			Test:     mainGetBucketPolicy,
+			Extended: false, // GetBucketPolicy is not an extended API.
+			Critical: false, // This test does not affect future tests.
+		},
+	*/
 
 	// Tests for PutObject API.
 	APItest{
@@ -115,11 +119,13 @@ var preparedTests = []APItest{
 		Extended: false, // ListObjects is not an extended API.
 		Critical: false, // This test does not affect future tests.
 	},
-	APItest{
-		Test:     mainListObjectsV2Prepared,
-		Extended: false, // ListObjects is not an extended API.
-		Critical: false, // This test does not affect future tests.
-	},
+	/*
+		APItest{
+			Test:     mainListObjectsV2Prepared,
+			Extended: false, // ListObjects is not an extended API.
+			Critical: false, // This test does not affect future tests.
+		},
+	*/
 
 	// Tests for PutObject streaming API.
 	APItest{
@@ -128,18 +134,22 @@ var preparedTests = []APItest{
 		Critical: false, // Because -- has been used this object is not necessary for future tests.
 	},
 
-	APItest{
-		Test:     mainPresignedPutObject,
-		Extended: false, // PutObject presigned is not an extended API.
-		Critical: false, // This object is not needed for future tests.
-	},
+	/*
+		APItest{
+			Test:     mainPresignedPutObject,
+			Extended: false, // PutObject presigned is not an extended API.
+			Critical: false, // This object is not needed for future tests.
+		},
+	*/
 
 	// Tests for PostObject API.
-	APItest{
-		Test:     mainPostObject,
-		Extended: false, // PostObject is not an extended API.
-		Critical: true,  // This test does affect other tests.
-	},
+	/*
+		APItest{
+			Test:     mainPostObject,
+			Extended: false, // PostObject is not an extended API.
+			Critical: true,  // This test does affect other tests.
+		},
+	*/
 	// Tests for Multipart API.
 	APItest{
 		Test:     mainInitiateMultipartUpload,
@@ -215,11 +225,13 @@ var preparedTests = []APItest{
 		Extended: false, // GetObject is not an extended API.
 		Critical: false, // This test does not affect future tests.
 	},
-	APItest{
-		Test:     mainGetObjectPresigned,
-		Extended: false, // GetObject Presigned is not an extended API.
-		Critical: false, // This test does not affect future tests.
-	},
+	/*
+		APItest{
+			Test:     mainGetObjectPresigned,
+			Extended: false, // GetObject Presigned is not an extended API.
+			Critical: false, // This test does not affect future tests.
+		},
+	*/
 
 	APItest{
 		Test:     mainGetObjectIfModifiedSince,
@@ -294,18 +306,22 @@ var unpreparedTests = []APItest{
 	},
 
 	// Tests for PutBucketPolicy API.
-	APItest{
-		Test:     mainPutBucketPolicy,
-		Extended: false, // PutBucketPolicy is not an extended API.
-		Critical: false, // This test does not affect future tests.
-	},
+	/*
+		APItest{
+			Test:     mainPutBucketPolicy,
+			Extended: false, // PutBucketPolicy is not an extended API.
+			Critical: false, // This test does not affect future tests.
+		},
+	*/
 
 	// Tests for GetBucketPolicy API.
-	APItest{
-		Test:     mainGetBucketPolicy,
-		Extended: false, // GetBucketPolicy is not an extended API.
-		Critical: false, // This test does not affect future tests.
-	},
+	/*
+		APItest{
+			Test:     mainGetBucketPolicy,
+			Extended: false, // GetBucketPolicy is not an extended API.
+			Critical: false, // This test does not affect future tests.
+		},
+	*/
 
 	// Tests for PutObject API.
 	APItest{
@@ -361,11 +377,13 @@ var unpreparedTests = []APItest{
 		Extended: false, // ListObjects is not an extended API.
 		Critical: false, // This test does not affect future tests.
 	},
-	APItest{
-		Test:     mainListObjectsV2UnPrepared,
-		Extended: false, // ListObjects is not an extended API.
-		Critical: false, // This test does not affect future tests.
-	},
+	/*
+		APItest{
+			Test:     mainListObjectsV2UnPrepared,
+			Extended: false, // ListObjects is not an extended API.
+			Critical: false, // This test does not affect future tests.
+		},
+	*/
 
 	// Tests for PutObject Streaming API.
 	APItest{
@@ -374,18 +392,22 @@ var unpreparedTests = []APItest{
 		Critical: true,  // These objects are necessary for future tests.
 	},
 
-	APItest{
-		Test:     mainPresignedPutObject,
-		Extended: false, // PutObject presigned is not an extended API.
-		Critical: true,  // This object is necessary for future tests.
-	},
+	/*
+		APItest{
+			Test:     mainPresignedPutObject,
+			Extended: false, // PutObject presigned is not an extended API.
+			Critical: true,  // This object is necessary for future tests.
+		},
+	*/
 
 	// Tests for PostObject API.
-	APItest{
-		Test:     mainPostObject,
-		Extended: false, // PostObject is not an extended API.
-		Critical: true,  // This test does affect other tests.
-	},
+	/*
+		APItest{
+			Test:     mainPostObject,
+			Extended: false, // PostObject is not an extended API.
+			Critical: true,  // This test does affect other tests.
+		},
+	*/
 
 	// Tests for Multipart API.
 	APItest{
@@ -463,11 +485,13 @@ var unpreparedTests = []APItest{
 		Extended: false, // GetObject is not an extended API.
 		Critical: false, // This test does not affect future tests.
 	},
-	APItest{
-		Test:     mainGetObjectPresigned,
-		Extended: false, // GetObject Presigned is not an extended API.
-		Critical: false, // This test does not affect future tests.
-	},
+	/*
+		APItest{
+			Test:     mainGetObjectPresigned,
+			Extended: false, // GetObject Presigned is not an extended API.
+			Critical: false, // This test does not affect future tests.
+		},
+	*/
 	APItest{
 		Test:     mainGetObjectIfModifiedSince,
 		Extended: true,  // GetObject with if-modified-since header is an extended API.
