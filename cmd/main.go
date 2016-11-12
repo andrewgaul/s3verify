@@ -146,21 +146,30 @@ func runPreparedTests(config ServerConfig, testExtended bool) {
 
 // runTests - run all provided tests.
 func runTests(config ServerConfig, tests []APItest, testExtended bool) {
+	failed := 0
 	count := 1
 	for _, test := range tests {
 		if test.Extended {
 			// Only run extended tests if explicitly asked for.
 			if testExtended {
-				test.Test(config, count)
+				if !test.Test(config, count) {
+					failed++
+				}
 				count++
 			}
 		} else {
-			if !test.Test(config, count) && test.Critical {
-				// If the test failed and it was critical exit immediately.
-				os.Exit(1)
+			if !test.Test(config, count) {
+				failed++
+				if test.Critical {
+					// If the test failed and it was critical exit immediately.
+					os.Exit(1)
+				}
 			}
 			count++
 		}
+	}
+	if failed > 0 {
+		os.Exit(1)
 	}
 }
 
