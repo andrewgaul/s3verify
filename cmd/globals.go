@@ -31,6 +31,7 @@ var (
 	globalTotalNumTest  int           // The total number of tests being run.
 	globalRandom        *rand.Rand    // A global random seed used by retry code.
 	globalSuffix        string        // The suffix to append to all s3verify created objects and buckets.
+	globalExcludes      []string      // Test to exclude.
 )
 
 const (
@@ -62,7 +63,7 @@ func (r *lockedRandSource) Seed(seed int64) {
 }
 
 // Separate out context.
-func setGlobals(verbose bool, numTests int, suffix string) {
+func setGlobals(verbose bool, numTests int, suffix string, excludes []string) {
 	globalTotalNumTest = numTests
 	globalVerbose = verbose
 	if globalVerbose {
@@ -71,6 +72,7 @@ func setGlobals(verbose bool, numTests int, suffix string) {
 	}
 	globalRandom = rand.New(&lockedRandSource{src: rand.NewSource(time.Now().UTC().UnixNano())})
 	globalSuffix = suffix
+	globalExcludes = excludes
 }
 
 // Set any global flags here.
@@ -93,7 +95,8 @@ func setGlobalsFromContext(ctx *cli.Context) error {
 	if ctx.GlobalString("reuse") != "" {
 		suffix = ctx.GlobalString("reuse")
 	}
-	setGlobals(verbose, numTests, suffix)
+	excludes := ctx.StringSlice("exclude")
+	setGlobals(verbose, numTests, suffix, excludes)
 
 	return nil
 }

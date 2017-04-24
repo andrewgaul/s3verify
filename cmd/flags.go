@@ -52,6 +52,11 @@ var globalFlags = []cli.Flag{
 		Name:  "extended",
 		Usage: "Enable testing of extra S3 APIs",
 	},
+	cli.StringSliceFlag{
+		Name:  "exclude, x",
+		Usage: "Exclude tests by name",
+		Value: &cli.StringSlice{},
+	},
 	cli.StringFlag{
 		Name:  "reuse",
 		Usage: `Prepare or reuse a testing environment`,

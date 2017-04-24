@@ -20,6 +20,8 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"reflect"
+	"runtime"
 
 	"github.com/minio/cli"
 	"github.com/minio/mc/pkg/console"
@@ -148,7 +150,19 @@ func runPreparedTests(config ServerConfig, testExtended bool) {
 func runTests(config ServerConfig, tests []APItest, testExtended bool) {
 	failed := 0
 	count := 1
+
+TEST:
 	for _, test := range tests {
+		funcName := runtime.FuncForPC(reflect.ValueOf(test.Test).Pointer()).Name()
+
+		for _, exclude := range globalExcludes {
+			if funcName == "github.com/minio/s3verify/cmd."+exclude {
+				fmt.Println("skipping " + exclude)
+				count++
+				continue TEST
+			}
+		}
+
 		if test.Extended {
 			// Only run extended tests if explicitly asked for.
 			if testExtended {
