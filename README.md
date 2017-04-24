@@ -1,6 +1,7 @@
 <p align="center">
 <img src="https://github.com/minio/s3verify/blob/master/s3v_logo-01.png?raw=true" width="140px">
 </p>
+
 # s3verify - A tool to test for Amazon S3 V4 Signature API Compatibility [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/minio/minio?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Go Report Card](https://goreportcard.com/badge/minio/minio)](https://goreportcard.com/report/minio/minio) [![Build Status](https://travis-ci.org/minio/s3verify.svg?branch=master)](https://travis-ci.org/minio/s3verify)
 
 s3verify performs a series of API calls against an object storage server and checks the responses for AWS S3 signature version 4 compatibility.
@@ -8,7 +9,7 @@ s3verify performs a series of API calls against an object storage server and che
 ## INSTALLATION
 ### Prerequisites
 - A working Golang Environment. If you do not have a working Golang environment, please follow [Install Golang](https://github.com/minio/minio/blob/master/INSTALLGO.md).
-- [Minio Server] (https://github.com/minio/minio/blob/master/README.md) (optional--only necessary if you wish to test your own Minio Server for S3 Compatibility.)
+- [Minio Server](https://github.com/minio/minio/blob/master/README.md) (optional--only necessary if you wish to test your own Minio Server for S3 Compatibility.)
 
 ### From Source
 Currently s3verify is only available to be downloaded from source. 
@@ -49,7 +50,7 @@ variables be used for security reasons.
 
 The following env. variables can be used to replace their corresponding flags.
 
-```sh
+```
     S3_ACCESS can be set to YOUR_ACCESS_KEY and replaces --access -a.
     S3_SECRET can be set to YOUR_SECRET_KEY and replaces --secret -s.
     S3_REGION can be set to the region of the AWS host and replaces --region -r.
